@@ -3,7 +3,7 @@ window.onload = function() {
     var game = new Game(600,450);
     
     var tile =16;//タイルのサイズ (デフォは16)
-    game.preload('map0.gif','chara0.gif','pad.png','icon.gif','clear.png','gameover.png');
+    game.preload('../lib/map0.gif','../lib/chara0.gif','pad.png','../lib/icon.gif','../lib/clear.png','../lib/gameover.png');
     game.fps = 60;
     game.onload = function() {      
         /*var m_data  = new Array();  //表示用マップ領域
@@ -47,7 +47,7 @@ window.onload = function() {
 
        
        var backgroundMap = new Map(16,16);
-       backgroundMap.image = game.assets['map0.gif'];
+       backgroundMap.image = game.assets['../lib/map0.gif'];
        backgroundMap.loadData([
         [7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7],
         [7,100,100,100,100,7,100,7,100,100,100,100,100,100,100,100,100,100,100,7],
@@ -123,7 +123,7 @@ window.onload = function() {
          
         
         var goal = new Sprite(16,16)
-            goal.image = game.assets['map0.gif'];
+            goal.image = game.assets['../lib/map0.gif'];
             goal.x =288;
             goal.y =288;
             goal.frame = 1;
@@ -143,7 +143,7 @@ window.onload = function() {
            var gameOverScene = new Scene();
             gameOverScene.backgroundColor = 'black';
             var gameoverImage = new Sprite(189, 97);                   // スプライトを作る
-            gameoverImage.image = game.assets['gameover.png'];  // ゲームオーバー画像を設定
+            gameoverImage.image = game.assets['../lib/gameover.png'];  // ゲームオーバー画像を設定
             gameoverImage.x = 200;                                      // 横位置調整
             gameoverImage.y = 112;                                     // 縦位置調整
             gameOverScene.addChild(gameoverImage);                             // シーンに追加
@@ -189,7 +189,7 @@ window.onload = function() {
 var clearScene = new Scene();
             //clearScene.backgroundColor = 'black';
             var clearImage = new Sprite(250, 97);                   // スプライトを作る
-            clearImage.image = game.assets['clear.png'];  // ゲームオーバー画像を設定
+            clearImage.image = game.assets['../lib/clear.png'];  // ゲームオーバー画像を設定
             clearImage.x = 150;                                      // 横位置調整
             clearImage.y = 112;                                     // 縦位置調整
             clearScene.addChild(clearImage);                             // シーンに追加
@@ -253,7 +253,7 @@ var clearScene = new Scene();
 
         //プレイヤーの初期化
         var player = new Sprite(32,32);
-        player.image = game.assets['chara0.gif'];
+        player.image = game.assets['../lib/chara0.gif'];
         player.x     = 8;
         player.y     = 16;
         game.rootScene.addChild(player);
