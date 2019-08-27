@@ -264,15 +264,16 @@ var clearScene = new Scene();
         var p_spd   = 16;            //プレイヤーの移動スピード (もとは１)
         var a_spd   = 300;            //プレイヤーのアニメーションスピード
  //当たり判定は完成
+        var keyinput = 0;
         player.addEventListener('enterframe', function(e) {
            this.xx = this.x;
            this.yy = this.y;
            // this.frame = 120;
            // this.moveTo(this.xx,this.yy);
-            if (game.input.left){/*this.xx = this.x - p_spd;*/this.direction = 1;}
-            if (game.input.right){/*this.xx = this.x + p_spd;*/this.direction = 2;}
-            if (game.input.up) {/*this.yy = this.y - p_spd;*/this.direction = 3;}
-            if (game.input.down){/* this.yy = this.y + p_spd;*/this.direction = 0;}
+            if (game.input.left){/*this.xx = this.x - p_spd;*/this.direction = 1;keyinput=1;}
+            if (game.input.right){/*this.xx = this.x + p_spd;*/this.direction = 2;keyinput=1;}
+            if (game.input.up) {/*this.yy = this.y - p_spd;*/this.direction = 3;keyinput=1;}
+            if (game.input.down){/* this.yy = this.y + p_spd;*/this.direction = 0;keyinput=1;}
             
              
             //移動予定地this.xx,this.yyが壁かどうかを調べる。
@@ -287,7 +288,7 @@ var clearScene = new Scene();
            //this.moveTo(120,120,100);
 
         
-          while (!backgroundMap.hitTest(this.xx+16,this.yy+16)) {
+          while (!backgroundMap.hitTest(this.xx+16,this.yy+16)&&keyinput==1) {
             player.moveTo(this.xx,this.yy,10000,enchant.Easing.QUINT_EASEIN);
                if(this.direction==1) {
                 this.xx = this.x - p_spd
